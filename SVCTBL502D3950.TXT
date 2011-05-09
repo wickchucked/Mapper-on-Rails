@@ -1,0 +1,4 @@
+.Object Table  -  Category: sample_app_params
+*                         .D.    .Svc     .Acc.        .T.   .Sty .S.Sty .Template.W.J.            .
+*Service Name        .Cab .w.Rpt .Typ     .ess.Exdate  .P.Net.Cab .t.Rpt .Type    .I.S.Run Called  .
+*====================.====.=.====.========.===.========.=.===.====.=.====.========.=.=.============.================================

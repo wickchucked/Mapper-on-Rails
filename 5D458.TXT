@@ -1,0 +1,11 @@
+.Object Name: pages_contact
+*    Version: 0001
+*
+*===============================================================================
+@0001:() . Entry point for ICE Service Handler
+  [h1]Contact[/h1]
+  [p]
+    Contact Ruby on Rails Tutorial about the sample app at the
+    [a href="http://railstutorial.org/feedback"]feedback page[/a].
+  [/p]
+@    esr . Return to ICE Service Handler

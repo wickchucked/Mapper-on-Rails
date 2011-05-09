@@ -1,0 +1,75 @@
+.Object Name: external_files
+*    Version: 0001
+*
+*===============================================================================
+@.
+@.   This Service is used to RETRIEVE the location of an external file
+@.   and OUTPUT the results into the output area of the calling run
+@.
+@.   **************  Get location of Object in the Cool ICE Repository  ********
+@     ldv,p <kategory>s20='subroutine',<object>s20='External_Files' .
+@     call,<GSvcHndCab>,<GSvcHndDrw>,11 0001 \
+      (<kategory>,<object>,<GIceRepCab>,\
+      <subCab>a4,<subDrw>a1,<ExtFil>a4,<msgnbr>a3,<msgtxt>s132,<status>a1) .
+@.
+@.   **************  Example Call to this service **( CSS Stylesheets )*********
+@     call,<subCab>,<subDrw>,<ExtFil> 0010* ('Stylesheet','File_Name',<optattr>,\
+        <GSvcHndCab>,<GSvcHndDrw>,<GIceRepCab>,<GAspAlsDir>) .
+@.
+@.   **************  Example Call to this service **( JavaScript Files )********
+@     call,<subCab>,<subDrw>,<ExtFil> 0010* ('JavaScript','File_Name',<optattr>,\
+        <GSvcHndCab>,<GSvcHndDrw>,<GIceRepCab>,<GAspAlsDir>) .
+@.
+@.
+@.---- Call Entry Point ----
+@0010:(<type>,<file>,<optattr>,\
+       <GSvcHndCab>,<GSvcHndDrw>,<GIceRepCab>,<GAspAlsDir>) .
+@.
+@.---- Locate the External_<type> File Table ----
+@     if ecab$ lt 298 ldv <scat>s20='misc_tables' . ; ldv <scat>s20='misc_test_tables' .
+@     ldv,p <kategory>s20=<scat>,<object>s20='External_'<type> .
+@     call,<GSvcHndCab>,<GSvcHndDrw>,11 0001* \
+         (<kategory>,<object>,<GIceRepCab>,\
+          <ocab>h4,<odrw>h1,<orpt>h4,<msg>h3,<msgtxt>s256,<status>a1) .
+@     if <status> = 0 . ; .               Status OK?
+@.
+@.---- JavaScript Files ----
+@     if <type> eq JavaScript . ; gto 0020 .
+@.
+@     rsr 0200 . load the exteral file path
+@.
+@.---- Put External JavaScript file in OUTPUT AREA ----
+@.
+[script type="text/javascript" src="<extFil>"][/script]
+@.
+@     gto 0100 .
+@     return .
+@0020:if <type> eq Stylesheet . ; gto 0100 .
+@.
+@     rsr 0200 . load the exteral file path
+@.
+@.---- Put External Stylesheet file in OUTPUT AREA ----
+@.
+[link rel="stylesheet" type="text/css" media="<media>(p)" href="<extFil>" /]
+@.
+@     gto 0100 .
+@.
+@.---- Return back to calling run ----
+@0100:.
+@     return .
+@.
+@./                                                                            \
+@.---- S U B R O U T I N E S : Read the file info and build the path -----------
+@.\                                                                            /
+@0200:.
+@     fdr,<ocab>,<odrw>,<orpt> '' 'file' 	,<file> \
+        rln 'file','directory','folder','version','extens','media' \
+          <file>s,<virDir>s,<folder>s,<ver>i,<ext>s,<media>s .
+@     ldv,p <dir>s80=<<virDir>> .
+@     ldv <extFil>s256='../'<dir>'/',\
+           <extFil>=<extFil>(p)<folder>,\
+           <extFil>=<extFil>(p)<file>,\
+           <extFil>=<extFil>(p)<ver>,\
+           <extFil>=<extFil>(p)<ext> .
+@     ldv,p <extFil> .
+@     esr .

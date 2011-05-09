@@ -1,0 +1,11 @@
+.Object Name: redirect                                     Define: Helper_Redirect
+*    Version: 0001
+*
+*===============================================================================
+@. TODO Make a table where all redirects will be located
+@. TODO Matched by the action of the controller
+@.---- Call Entry Point ----
+@0001:.
+    [meta http-equiv="refresh" CONTENT="0;
+     URL=<gurlcat><service>&action=<action>(p)&id=<userid>(p)"]
+@     esr .

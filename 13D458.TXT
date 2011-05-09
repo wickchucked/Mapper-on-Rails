@@ -1,0 +1,38 @@
+.Object Name: shared_error_msgs
+*    Version: 0001
+*
+*===============================================================================
+@0001:() . Entry point for ICE Service Handler
+@     call,<GSvcHndCab>,<GSvcHndDrw>,17 001('flash',<sessionid>,'-1',\
+        <GIceRepCab>,<msg>a3,<msgtxt>s256,<status>a1) .
+@     if <status> eq 9,(0199) .
+@     fdr,-0,,,0198 '' 2-1 *,= ,<ln>i3 .
+@     srh,-0 'dn@' 'msgs(1-1)' 	,@ ,<count>h2 .
+@     lzr,-0 ,,<hdg>i7 inc <hdg> .
+@     rdl,-0,2 32-12 <flashtype>h .
+@. ---- Flash Failure Message(s) ----
+@     if <flashtype> eq failure . ; gto 0002 .
+    [div id="error_explanation"]
+      [h2]
+        There are <count> outstanding error(s) .
+      [/h2]
+      [br]
+      [ul]
+@     rdc,-0,<hdg> 2-80 <failure>s .
+        [li]<failure>(p)[/li]
+      [/ul]
+    [/div]
+@     gto 0198 .
+@. ---- Flash Success Message ----
+@0002:.
+    [div class="flash success"]
+@     rdc,-0,<hdg> 2-80 <success>s .
+         <success>(p)
+    [/div]
+@0198:call,<GSvcHndCab>,<GSvcHndDrw>,18 001* \
+       ('flash',<sessionid>,'-1',<GIceRepCab>,<msg>a3,<msgtxt>s256,<status>a1) .
+@     call,<GSvcHndCab>,<GSvcHndDrw>,27 001* \
+       ('ssflash','false',<*category>,<*service>,<sessionid>,<GIceRepCab>,\
+       <msg>a3,<msgtxt>s256,<status>a1) .
+@0199:.
+@     esr .  Return to ICE Service Handler

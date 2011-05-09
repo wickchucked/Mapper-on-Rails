@@ -1,0 +1,15 @@
+.Object Name: Routes                                       Define: Table_Pages
+*                    .            .                                                       .view.root.
+*service             .action      .route params                                           .loc  path.
+*====================.============.=======================================================.====.====.
+	pages               	home        	                                                       	0007	root	
+	pages               	contact     	                                                       	0005	    	
+	pages               	about       	                                                       	0006	    	
+	pages               	help        	                                                       	0008	    	
+	users               	new         	                                                       	0009	    	
+	users               	create      	                                                       	0009	    	
+	users               	show        	                                                       	0010	    	
+	users               	index       	                                                       	0011	    	
+	users               	edit        	                                                       	0012	    	
+	sessions            	signin      	                                                       	0014	    	
+	sessions            	create      	                                                       	0015	    	

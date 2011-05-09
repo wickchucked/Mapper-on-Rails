@@ -1,0 +1,6 @@
+.Object Table  -  Category: sample_app_db
+*                         .D.    .Svc     .Acc.        .T.   .Sty .S.Sty .Template.W.J.            .
+*Service Name        .Cab .w.Rpt .Typ     .ess.Exdate  .P.Net.Cab .t.Rpt .Type    .I.S.Run Called  .
+*====================.====.=.====.========.===.========.=.===.====.=.====.========.=.=.============.================================
+	models_user          458  C    2 RPT      DRT            On
+*models_user          Title =Users Model

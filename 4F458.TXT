@@ -1,0 +1,79 @@
+.Object Name: sessions
+*    Version: 0001
+*
+*===============================================================================
+:INCLUDE,ECAB$,B,0002 .
+@.
+@. -----------------------------------------------------------------------------------------------
+@. -   M A P P E R  M V S in Theory -                                                            -
+@. -                                                                                             -
+@. -   MODEL: none                         ------------                                          -
+@. -   VIEW: sessions_(see below)          - Browser  -                                          -
+@. -   SERVICE: sessions                   -          -                                          -
+@. -                                       - From Web -                                          -
+@. -                                       ------------                                          -
+@. -                                          |   / \                                            -
+@. -                                          |    |                                             -
+@. -                                         (1)  (6)                                            -
+@. -                                          |    |                                             -
+@. -                                         \ /   |                                             -
+@. -       ------------------         ---------------------         ----------------------       -
+@. -       - MODEL:         -         - SERVICE:          -         - VIEW:              -       -
+@. -       -                - <-(2)-- -                   - <-(5)-- -                    -       -
+@. -       - Business Logic - --(3)-> - Application Logic - --(4)-> - Presentation Logic -       -
+@. -       -                -         -                   -         -                    -       -
+@. -       ------------------         ---------------------         ----------------------       -
+@. -                                                                                             -
+@. - P R O C E S S:                                                                              -
+@. -                                                                                             -
+@. - (1) - Browser issues request to SERVICE.                                                    -
+@. - (2) - The MODEL is called from the SERVICE to handle the business logic and data.           -
+@. - (3) - The MODEL returns to the SERVICE.                                                     -
+@. - (4) - The SERVICE renders the VIEW.                                                         -
+@. - (5) - The VIEW output is returned to the SERVICE.                                           -
+@. - (6) - The SERVICE returns to ICESVCHND with the output of the page.                         -
+@. -                                                                                             -
+@. - V I E W S:                                                                                  -
+@. -                                                                                             -
+@. - (XXd458)  - sessions_new     ../Category=Sample_App&Service=Sessions&Action=New             -
+@. -                                                                                             -
+@. -----------------------------------------------------------------------------------------------
+@.
+@     ldv <run>a1=Y .                           using-rpx-to-execute?
+@     rnm,ecab$,g,erpt$ -8 .
+@     gto lin+3 .
+@0001:() . Entry point for ICE Service Handler
+@     rnm -8 ldv <run>h1=n if ecab$ LT 298 . ; rep,-8,ecab$,g,erpt$ .
+@     rsr,-8 001 . set values from browser input            Get Input Parameters
+@.
+@. ---- Initialize the application variables ----
+@     rsr,Helper_AppConfig 0001 .
+@.
+@. ---- Call the sessions_model ----
+@.    There is no pages model yet
+@.
+@. ---- Defined Actions ----
+@rdb  if <action> eq 'signin      ',(0010) . ; .
+@     if <action> eq 'create      ',(0020) . ; .
+@     if <action> eq 'destroy     ',(0030) . ; .
+@.
+@. ---- Action :: signin ----
+@0010:.
+@     ldv <title>s20='Sign In' .
+@     gto 0199 .
+@.
+@. ---- Action :: create ----
+@0020:.
+@     ldv <title>s20='Sign In' .
+@.ew  call Helper_Sign_In 0001 () .
+@     ldv,p <form_action>s256=<gurlcat><service>'&action=Create' .
+@     gto 0199 .
+@.
+@. ---- Action :: destroy ----
+@0030:.
+@     gto 0199 .
+@.
+@. ---- Call the application view including headers and footers ----
+@0199:rsr,View_Application .
+@     if <run> eq y dsx,-0 . ; .                             End HTML Output Area
+@     return                                                 Return to ICE Service Handler

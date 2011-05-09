@@ -1,0 +1,20 @@
+.Object Name: users_index
+*    Version: 0001
+*
+*===============================================================================
+@001:() . Entry point for ICE Service Handler
+    [table class="profile" summary="Profile information"]
+      [tr]
+        [td class="main"]
+          [h1]
+            [%= gravatar_for @user %]
+            [%= @user.name %]
+          [/h1]
+        [/td]
+        [td class="sidebar round"]
+          [strong]Name[/strong] [%= @user.name %][br /]
+          [strong]URL[/strong]  [%= link_to user_path(@user), @user %]
+        [/td]
+      [/tr]
+    [/table]
+@     esr .    Return to ICE Service Handler

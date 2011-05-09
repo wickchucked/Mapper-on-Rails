@@ -1,0 +1,71 @@
+.Object Name: layouts_application
+*    Version: 0001
+*
+*===============================================================================
+:INCLUDE,ECAB$,B,0002 .
+@001:(<action>,<diraction>,<redirect>) .
+@     csr . Clear the calling subroutine - Will Return to ICESVCHND from here
+@.
+@. ---- Find the location of the view ----
+@ rdb rsr,Helper_AppConfig 0002 .
+@.
+@     brk,0,i . Start HTML Output
+[!DOCTYPE html]
+[html]
+  [head]
+    [title] <pagetitle>(p) [/title]
+
+@. TODO Re-direct as needed ----
+@     if <redirect> eq true rsr,Helper_Redirect .
+
+@. TODO Render External Files ----
+@.ew  call,Helper_Ext_Files ('Stylesheet','USPS_error',[optattr]) .
+
+@     if <*ie_version> gt 6 if <*ie_version> lt 9 . ; gto lin+2 .
+     [script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"][/script]
+     [link href="../<GAspAlsDir>/stylesheets/screen.css" media="screen" rel="stylesheet"
+     type="text/css" /]
+     [link href="../<GAspAlsDir>/stylesheets/print.css" media="print" rel="stylesheet"
+     type="text/css" /]
+@     if <*ie_version> gt 6 if <*ie_version> lt 9 . ; gto lin+3 .
+     [link href="../<GAspAlsDir>/stylesheets/ie.css" media="screen" rel="stylesheet"
+     type="text/css" /]
+     [link href="../<GAspAlsDir>/stylesheets/custom.css" media="screen" rel="stylesheet"
+     type="text/css" /]
+
+  [/head]
+  [body]
+    [div class="container"]
+
+@. ---- Render the header ----
+@     rsr,Layout_Header () .
+
+    [section class="round"][!-- Begin Content --]
+@     if <redirect> eq true,(0010) .
+
+@. ---- Flash a message - Should be a CALL ??
+@     if <ssflash> eq true rsr,Shared_Flash () .
+@.
+@. ---- Render the view based on <action> ----
+@0005:.
+@     rsr,ecab$,d,<viewLoc> 0001 () .
+
+@0010:
+    [/section][!-- End of section content --]
+
+@. ---- Render the footer ----
+@     rsr,Layout_Footer () .
+
+    [pre]
+    ---- Debug info ----
+    service: <service>
+    action: <action>
+    [pre]
+
+    [/div][!-- End of container div --]
+  [/body]
+[/html]
+@. End of document
+@     brk . End HTML Output Area
+@     if <run> eq y dsx,-0 . ; .                             End HTML Output Area
+@     return . Return to ICE Service Handler

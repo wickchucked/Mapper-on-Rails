@@ -1,0 +1,21 @@
+.Object Name: Define                                       Define: Table_Define
+*      .                  .                    .
+*      .Name              .Location            .Description
+*======.==================.====================.===============================.
+:DEFINE ICESVCHND_         'ECAB$,B,0002'
+:DEFINE Table_Define       'ECAB$,B,0002'
+:DEFINE Table_Application  'ECAB$,B,0003'
+:DEFINE Table_Routes       'ECAB$,B,0004'
+:DEFINE Table_Global_Vars  'ECAB$,B,0005'
+:DEFINE DB_Users           'ECAB$,C,0003'       User Database
+:DEFINE View_Application   'ECAB$,D,0004 0001'
+:DEFINE View_Body          'ECAB$,D,<viewLoc>'
+:DEFINE Layout_Header      'ECAB$,D,0002 0001'  Header Partial for App
+:DEFINE Layout_Footer      'ECAB$,D,0003 0001'  Footer Partial for App
+:DEFINE Shared_Flash       'ECAB$,D,0013 0001'
+:DEFINE Models_User        'ECAB$,E,0003'       User Model
+:DEFINE Helper_AppConfig   'ECAB$,H,0002'       Common Config Routine
+:DEFINE Helper_Ext_Files   'ECAB$,H,0003 0001'
+:DEFINE Helper_Redirect    'ECAB$,H,0004 0001'
+:DEFINE Helper_Save_Flash  'ECAB$,H,0004 0001'
+:DEFINE Render_            'GTO'

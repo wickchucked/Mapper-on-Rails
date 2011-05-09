@@ -1,0 +1,39 @@
+.Object Name: users_controller
+*    Version: 0001
+*
+*===============================================================================
+:INCLUDE,ECAB$,B,0006 .
+@     ldv <run>a1=Y .                           using-rpx-to-execute?
+@     rnm,ecab$,g,erpt$ -8 .
+@     gto lin+3 .
+@0001:() . Entry point for ICE Service Handler
+@     rnm -8 ldv <run>h1=n if ecab$ LT 298 . ; rep,-8,ecab$,g,erpt$ .
+@     rsr,-8 001 . set values from browser input            Get Input Parameters
+@.
+@. ---- Read the application variables ----
+@     fdr,Table_Application,,,0199 '' 'param' 	,'title' .
+@     rln 'value' <basetitle>s .
+@     fdr,Table_Application,,,0199 '' 'param' 	,'rootpath' .
+@     rln 'value' <rootpath>s .
+@.
+@. ---- Find the location of the view based on <action> ----
+@     def,,lin1 <tst>i2,<action> gto lin+2 .
+@     ldv,p <action>s20=<rootpath> .
+@     fdr,Table_Routes,,,0199 '' 'action' 	,<action> .
+@     rln 'view','value' <view>s,<pageName>s .
+@     ldv <title>s100=<basetitle>(p)' | '<pagename>(p) .
+@.
+@. ---- Initialize global variables ----
+@     srh,Table_Global_Vars 'd' 'gl' 	,y  rdl,-0,5,lin+6 1-1 .
+@     rln,,lin+5 'var name','vt','siz' <v>h,<t>h,<s>i  ldv,p <v>,<s> .
+@     if <<v>> eq '<'<v>'>'  ldv <<v>>s<s> ; .
+@     xqt '@def,,lin+2 <n>i1,<*'<v>'>' .
+@     xqt '@ldv <*'<v>'>=<'<v>'>  gto lin-3 .' .
+@     xqt '@ldv <*'<v>'>'<t><s>'=<'<v>'>  gto lin-4 .' .
+@.
+@.
+@. ---- Call the application view including headers and footers ----
+@ rdb rnm,-8 -0 . pass the input
+@     call,View_Application (<action>,<view>,<title>) .
+@     if <run> eq y dsx,-0 . ; .                             End HTML Output Area
+@     return                                                 Return to ICE Service Handler

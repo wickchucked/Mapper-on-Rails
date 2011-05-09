@@ -1,0 +1,10 @@
+.Object Table  -  Category: sample_app
+*                         .D.    .Svc     .Acc.        .T.   .Sty .S.Sty .Template.W.J.            .
+*Service Name        .Cab .w.Rpt .Typ     .ess.Exdate  .P.Net.Cab .t.Rpt .Type    .I.S.Run Called  .
+*====================.====.=.====.========.===.========.=.===.====.=.====.========.=.=.============.================================
+	pages                458  F    2 DYN      MNU            On
+*pages                Title =pages_controller
+	users                458  F    3 DYN      MNU            On
+*users                Title =pages_controller
+	sessions             458  F    4 DYN      DRT            On
+*sessions             Title =Sessions Controller

@@ -1,0 +1,12 @@
+.Object Table  -  Category: sample_app_helpers
+*                         .D.    .Svc     .Acc.        .T.   .Sty .S.Sty .Template.W.J.            .
+*Service Name        .Cab .w.Rpt .Typ     .ess.Exdate  .P.Net.Cab .t.Rpt .Type    .I.S.Run Called  .
+*====================.====.=.====.========.===.========.=.===.====.=.====.========.=.=.============.================================
+	appconfig            458  H    2 DYN      DRT            On
+*appconfig            Title =application_helper
+	external_files       458  H    3 DYN      DRT            On
+*external_files       Title =application_helper
+	redirect             458  H    4 DYN      DRT            On
+*redirect             Title =application_helper
+	flash                458  H    5 DYN      DRT            On
+*flash                Title =application_helper

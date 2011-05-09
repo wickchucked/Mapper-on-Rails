@@ -1,0 +1,20 @@
+.Object Name: sessions_new
+*    Version: 0001
+*
+*===============================================================================
+@0001:() . Entry point for ICE Service Handler
+    [form action="[formaction]" method="post"]
+      [div class="field"]
+        [label for="session_email"]Email[/label][br /]
+        [input id="session_email" name="email" size="30" type="text" /]
+      [/div]
+      [div class="field"]
+        [label for="session_password"]Password[/label][br /]
+        [input id="session_password" name="password" size="30"
+               type="password" /]
+      [/div]
+      [div class="actions"]
+        [input id="session_submit" name="commit" type="submit" value="Sign in" /]
+      [/div]
+    [/form]
+@     esr . Return to ICE Service Handler

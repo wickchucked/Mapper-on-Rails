@@ -1,0 +1,16 @@
+.Object Name: layouts_header
+*    Version: 0001
+*
+*===============================================================================
+@0001:() . Entry point for ICE Service Handler
+    [header]
+     [img alt="Sample App" src="../<*GAspAlsDir>(p)/images/logo1.png" class="round" /]
+      [nav class="round"]
+        [ul]
+          [li][a href="<gurlcat>(p)pages&action=home"]Home[/a][/li]
+          [li][a href="<gurlcat>(p)pages&action=help"]Help[/a][/li]
+          [li][a href="<gurlcat>(p)sessions&action=signin"]Sign in[/a][/li]
+        [/ul]
+      [/nav]
+    [/header]
+@     esr . Return to ICE Service Handler

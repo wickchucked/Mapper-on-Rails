@@ -1,0 +1,15 @@
+.Object Name: global_vars                                  Define: Table_Global_Vars
+*            .G.V.   .Sub.
+*Var Name    .L.T.Siz.Sys.
+*============.=.=.===.===.
+	gaspalsdir  	Y	s	 40	ICE	
+	gicerepcab  	Y	a	  4	ICE	
+	gsvchndcab  	Y	a	  4	ICE	
+	gsvchnddrw  	Y	a	  1	ICE	
+	gsysimgals  	Y	s	 40	ICE	
+	gvalidationt	Y	i	  1	ICE	
+	gurlcat     	Y	s	256	ICE	
+	GAspAlsDir  	Y	s	 40	ICE	
+	sessionid   	Y	s	 20	ICE	
+	transid     	Y	s	 11	ICE	
+	ie_version  	Y	h	  2	ICE	

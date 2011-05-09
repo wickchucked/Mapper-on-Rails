@@ -1,0 +1,43 @@
+.Object Name: users_new
+*    Version: 0001
+*
+*===============================================================================
+@0001:() . Entry point for ICE Service Handler
+@. ---- TODO Make form values inputable from a table some how ----
+@     def,,lin1 <t>i2,<name> gto lin+2 .
+@     ldv <name>s0 .
+@     def,,lin1 <t>i2,<email> gto lin+2 .
+@     ldv <email>s0 .
+@     def,,lin1 <t>i2,<password> gto lin+2 .
+@     ldv <password>s0 .
+@     def,,lin1 <t>i2,<passconfirm> gto lin+2 .
+@     ldv <passconfirm>s0 .
+    [h1]Sign up[/h1]
+
+    [form action="<form_action>" method="post"
+          class="new_user" id="new_user" /]
+      [div class="field"]
+        [label for="user_name"]Name[/label][br /]
+        [input id="user_name" name="name" size="30" type="text" value="<name>"
+         autocomplete="off" /]
+      [/div]
+      [div class="field"]
+        [label for="user_email"]Email[/label][br /]
+        [input id="user_email" name="email" size="30" type="text" value="<email>"
+         autocomplete="off" /]
+      [/div]
+      [div class="field"]
+        [label for="user_password"]Password[/label][br /]
+        [input id="user_password" name="password" size="30" type="password"
+               value="<password>" autocomplete="off" /]
+      [/div]
+      [div class="field"]
+        [label for="user_password_confirmation"]Confirmation[/label][br /]
+        [input id="user_password_confirmation" name="passconfirm"
+               size="30" type="password" value="<passconfirm>" autocomplete="off" /]
+      [/div]
+      [div class="actions"]
+        [input id="user_submit" name="commit" type="submit" value="Sign up" /]
+      [/div]
+    [/form]
+@     esr . Return to ICE Service Handler

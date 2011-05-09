@@ -1,0 +1,40 @@
+.Object Name: appconfig                                    Define: Helper_AppConfig
+*    Version: 0001
+*
+*===============================================================================
+@. ---- Read the application variables ----
+@0001:fdr,Table_Application,,,0199 '' 'param' 	,'rootpath' .
+@     rln 'value' <rootpath>s .
+@     def,c,lin1 <t>i2,<action> if <t> ne 0,(lin2) .
+@     ldv,p <action>h12=<rootpath> .
+@.
+@. ---- Check Internet Explorer Version ----
+@     lcv,lin1 '' <GUserAgent> 'MSIE' <msie>i3 inc,4 <msie> \
+        ldv <ie_version>h2=<GuserAgent>(<msie>-2) .
+@.
+@. ---- Initialize <redirect> if not defined ----
+@. ---- TODO initilaize non-global vars from a table like code below ---
+@     ldv <redirect>h4 .
+@     ldv <flash>h5=false .
+@.
+@. ---- Initialize global variables ----
+@     srh,Table_Global_Vars 'd' 'gl' 	,y  rdl,-0,5,lin+6 1-1 .
+@     rln,,lin+5 'var name','vt','siz' <v>h,<t>h,<s>i  ldv,p <v>,<s> .
+@     if <<v>> eq '<'<v>'>'  ldv <<v>>s<s> ; .
+@     xqt '@def,,lin+2 <n>i1,<*'<v>'>' .
+@     xqt '@ldv <*'<v>'>=<'<v>'>  gto lin-3 .' .
+@     xqt '@ldv <*'<v>'>'<t><s>'=<'<v>'>  gto lin-4 .' .
+@     esr .
+@.
+@. ---- Find the location of the view ----
+@0002:fdr,Table_Application,,,0199 '' 'param' 	,'title' .
+@     rln 'value' <basetitle>s .
+@     fdr,Table_Routes,,,0199 '' 'service','action' 	,<service>,<action> .
+@     rln 'viewLoc' <viewLoc>s .
+@     ldv <pagetitle>s100=<basetitle>(p)' | '<title>(p) .
+@     esr .
+@.
+@. ---- Errors ----
+@0199:.
+@     ldv <error>h1=y .
+@     esr .

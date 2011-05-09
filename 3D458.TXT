@@ -1,0 +1,16 @@
+.Object Name: layouts_footer
+*    Version: 0001
+*
+*===============================================================================
+@0001:() . Entry point for ICE Service Handler
+    [footer]
+      [nav class="round"]
+        [ul]
+          [li][a href="<*gurlcat>(p)pages&action=about"]About[/a][/li]
+          [li][a href="<*gurlcat>(p)pages&action=contact"]Contact[/a][/li]
+          [li][a href="http://news.railstutorial.org/"]News[/a][/li]
+          [li][a href="http://www.railstutorial.org/"]Rails Tutorial[/a][/li]
+        [/ul]
+      [/nav]
+    [/footer]
+@     esr . Return to ICE Service Handler

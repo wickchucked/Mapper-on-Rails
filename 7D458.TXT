@@ -1,0 +1,12 @@
+.Object Name: pages_home
+*    Version: 0001
+*
+*===============================================================================
+@0001:() . Entry point for ICE Service Handler
+  [h1]Sample App[/h1]
+  [p]
+    This is the home page for the [a href="http://railstutorial.org/"]Ruby on Rails Tutorial[/a]
+    sample application.
+  [/p]
+  [a href="<*gurlcat>(p)users&action=new" class="signup_button round"]Sign up now![/a]
+@     esr . Return to ICE Service Handler

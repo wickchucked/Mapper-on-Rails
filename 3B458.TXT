@@ -1,0 +1,6 @@
+.Object Name: Application                                  Define: Table_Application
+*            .   .                                                                                                .sys.
+*param       .siz.value                                                                                           .var.
+*============.===.================================================================================================.===.
+	title       	   	Mapper on Rails Tutorial Sample App                                                             	yes	
+	rootpath    	   	home                                                                                            	yes	

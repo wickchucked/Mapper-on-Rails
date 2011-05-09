@@ -1,0 +1,5 @@
+.Object Name: define                                       Define: Model_Define
+*      .                  .                    .
+*      .Name              .Location            .Description
+*======.==================.====================.===============================.
+:DEFINE Models_Define      'ECAB$,B,0002'

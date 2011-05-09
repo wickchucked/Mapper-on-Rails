@@ -1,0 +1,28 @@
+.Category Table
+*                    .    .D.    .Svc .S.Sty .S.Sty .T.   .Ctg.R.Acc.
+*Category            .Cab .w.Rpt .Cab .d.Cab .t.Rpt .P.Net.Loc.W.ess.
+*====================.====.=.====.====.=.====.=.====.=.===.===.=.===.===========
+	sample_app           3950 D  501 458  F             C On  Loc W DRT
+*sample_app           Title =Sample Application
+*sample_app           Width =100
+	sample_app_params    3950 D  502 458  G             C Off Loc W NDR
+*sample_app_params    Title =Sample MVC app params
+*sample_app_params    Width =100
+	sample_app_views     3950 D  503 458  D             C On  Loc W NDR
+*sample_app_views     Title =Sample App Views
+*sample_app_views     Width =100
+	sample_app_models    3950 D  504 458  E             C On  Loc W NDR
+*sample_app_models    Title =Sample App Models
+*sample_app_models    Width =100
+	sample_app_helpers   3950 D  505 458  H             C On  Loc W NDR
+*sample_app_helpers   Title =Sample App Helpers
+*sample_app_helpers   Width =100
+	sample_app_tables    3950 D  506 458  B             C Off Loc W NDR
+*sample_app_tables    Title =Sample Application Tables
+*sample_app_tables    Width =256
+	sample_app_tests     3950 D  514 458  I             C Off Loc W DRT
+*sample_app_tests     Title =Sample Application Tests
+*sample_app_tests     Width =100
+	sample_app_db        3950 D  515 458  C             C Off Loc W NDR
+*sample_app_db        Title =Sample Application Database
+*sample_app_db        Width =256

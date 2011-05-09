@@ -1,0 +1,30 @@
+.Object Table  -  Category: sample_app_views
+*                         .D.    .Svc     .Acc.        .T.   .Sty .S.Sty .Template.W.J.            .
+*Service Name        .Cab .w.Rpt .Typ     .ess.Exdate  .P.Net.Cab .t.Rpt .Type    .I.S.Run Called  .
+*====================.====.=.====.========.===.========.=.===.====.=.====.========.=.=.============.================================
+	layouts_header       458  D    2 DYN      DRT            On
+*layouts_header       Title =_header
+	layouts_footer       458  D    3 DYN      DRT            On
+*layouts_footer       Title =_footer
+	layouts_application  458  D    4 DYN      DRT            On
+*layouts_application  Title =_footer
+	pages_contact        458  D    5 DYN      DRT            On
+*pages_contact        Title =_header
+	pages_about          458  D    6 DYN      DRT            On
+*pages_about          Title =_header
+	pages_home           458  D    7 DYN      DRT            On
+*pages_home           Title =_header
+	pages_help           458  D    8 DYN      DRT            On
+*pages_help           Title =_header
+	users_new            458  D    9 DYN      DRT            On
+*users_new            Title =_header
+	users_show           458  D   10 DYN      DRT            On
+*users_show           Title =_header
+	users_index          458  D   11 DYN      DRT            On
+*users_index          Title =_header
+	users_edit           458  D   12 DYN      DRT            On
+*users_edit           Title =_header
+	shared_error_msgs    458  D   13 DYN      DRT            On
+*shared_error_msgs    Title =_header
+	sessions_new         458  D   14 DYN      DRT            On
+*sessions_new         Title =sessions_new
